@@ -1,6 +1,9 @@
 - name: "clone zprezto project"
   git: repo=https://github.com/pavel-v-chernykh/prezto.git dest={{ zprezto_project_dir }}
 
+- name: "link zprezto"
+  shell: "ln -Fs {{ zprezto_project_dir }} {{ home_dir }}/.zprezto"
+
 - name: "replace gitconfig"
   template:
     src: "dotfiles/gitconfig"
@@ -35,9 +38,3 @@
   template:
     src: "dotfiles/zshrc"
     dest: "{{ home_dir }}/.zshrc"
-
-- name: "link zprezto"
-  shell: "ln -s {{ zprezto_project_dir }} ~/.zprezto"
-  args:
-    creates: "~/.zprezto"
-    removes: "{{ zprezto_project_dir }}"

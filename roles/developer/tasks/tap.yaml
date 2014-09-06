@@ -1,3 +1,6 @@
+- name: "tap homebrew/binary"
+  homebrew_tap: name=homebrew/binary state=present
+
 - name: "tap cask"
   homebrew_tap: name=caskroom/cask state=present
 

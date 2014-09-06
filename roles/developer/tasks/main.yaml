@@ -1,4 +1,4 @@
-- include: cask.yaml
+- include: tap.yaml
 - include: browsers.yaml
 - include: dotfiles.yaml
 - include: tools.yaml

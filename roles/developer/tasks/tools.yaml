@@ -13,6 +13,9 @@
 - name: "install nodenv"
   homebrew: name=nodenv state=present
 
+- name: "install go"
+  homebrew: name=go state=present
+
 - name: "install sourcetree"
   homebrew_cask: name=sourcetree state=present
   environment:

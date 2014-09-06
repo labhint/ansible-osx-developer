@@ -16,4 +16,6 @@ mkdir "${PROJECTS_DIR}";
 git clone https://github.com/pavel-v-chernykh/ansible-osx-developer.git "${PROJECT_DIR}";
 cd "${PROJECT_DIR}";
 
-ansible-playbook ./provision/developer.yaml;
+ansible-playbook ./developer.yaml;
+
+# curl -LSs https://raw.githubusercontent.com/pavel-v-chernykh/ansible-osx-developer/master/bootstrap.sh -o /tmp/boostrap.sh && sh /tmp/boostrap.sh

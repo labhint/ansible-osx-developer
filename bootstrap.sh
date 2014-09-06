@@ -15,4 +15,4 @@ git clone https://github.com/pavel-v-chernykh/ansible-osx-developer.git "${PROJE
 
 cd "${PROJECT_DIR}" && ansible-playbook ./developer.yaml;
 
-# curl -LSs https://raw.githubusercontent.com/pavel-v-chernykh/ansible-osx-developer/master/bootstrap.sh -o /tmp/boostrap.sh && sh /tmp/boostrap.sh
+# curl -LSs https://raw.githubusercontent.com/pavel-v-chernykh/ansible-osx-developer/master/bootstrap.sh -o /tmp/bootstrap.sh && sh /tmp/bootstrap.sh

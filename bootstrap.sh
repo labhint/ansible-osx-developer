@@ -1,7 +1,6 @@
 #!/bin/sh
 
 PROJECTS_DIR="${HOME}/Projects"
-
 PROJECT_NAME="ansible-osx-developer"
 PROJECT_DIR="${PROJECTS_DIR}/${PROJECT_NAME}"
 
@@ -12,9 +11,9 @@ brew update && brew upgrade;
 
 brew install ansible;
 
-mkdir "${PROJECTS_DIR}";
+mkdir "${PROJECTS_DIR}" && cd "${PROJECT_DIR}";
+
 git clone https://github.com/pavel-v-chernykh/ansible-osx-developer.git "${PROJECT_DIR}";
-cd "${PROJECT_DIR}";
 
 ansible-playbook ./developer.yaml;
 

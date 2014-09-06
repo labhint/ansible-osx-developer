@@ -11,10 +11,8 @@ brew update && brew upgrade;
 
 brew install ansible;
 
-mkdir "${PROJECTS_DIR}" && cd "${PROJECT_DIR}";
-
 git clone https://github.com/pavel-v-chernykh/ansible-osx-developer.git "${PROJECT_DIR}";
 
-ansible-playbook ./developer.yaml;
+cd "${PROJECT_DIR}" && ansible-playbook ./developer.yaml;
 
 # curl -LSs https://raw.githubusercontent.com/pavel-v-chernykh/ansible-osx-developer/master/bootstrap.sh -o /tmp/boostrap.sh && sh /tmp/boostrap.sh

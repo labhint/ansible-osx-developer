@@ -1,0 +1,6 @@
+- include: options.yaml
+- include: dotfiles.yaml
+- include: cask.yaml
+- include: browsers.yaml
+- include: tools.yaml
+- include: devtools.yaml

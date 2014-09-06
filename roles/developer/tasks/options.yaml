@@ -1,0 +1,11 @@
+- name: "disable dashboard"
+  shell: "defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock"
+
+- name: "set default theme for terminal"
+  shell: "defaults write com.apple.Terminal 'Default Window Settings' 'Pro'"
+
+- name: "set startup theme for terminal"
+  shell: "defaults write com.apple.Terminal 'Startup Window Settings' 'Pro'"
+
+- name: "set default login shell for terminal"
+  shell: "defaults write com.apple.Terminal Shell '/usr/local/bin/zsh'"

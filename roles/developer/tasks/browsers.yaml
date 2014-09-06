@@ -1,0 +1,19 @@
+- name: "install google chrome"
+  homebrew_cask: name="google-chrome" state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"
+
+- name: "install mozilla firefox"
+  homebrew_cask: name="firefox" state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"
+
+- name: "install opera"
+  homebrew_cask: name="opera" state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"
+
+- name: "install opera mobile emulator"
+  homebrew_cask: name="opera-mobile-emulator" state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"

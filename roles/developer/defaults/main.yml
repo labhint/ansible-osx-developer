@@ -1,0 +1,3 @@
+projects_dir: "~/Projects"
+dotfiles_project_dir: "{{projects_dir}}/dotfiles"
+homebrew_cask_app_dir: "/Applications"

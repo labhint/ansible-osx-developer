@@ -1,0 +1,5 @@
+- name: "tap cask"
+  homebrew_tap: name=caskroom/cask state=present
+
+- name: "install cask"
+  homebrew: name=brew-cask state=present

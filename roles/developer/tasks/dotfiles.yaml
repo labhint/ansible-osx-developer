@@ -1,50 +1,43 @@
-- name: "clone dotfiles project"
-  git: repo=https://github.com/pavel-v-chernykh/dotfiles.git dest={{ dotfiles_project_dir }}
+- name: "clone zprezto project"
+  git: repo=https://github.com/pavel-v-chernykh/prezto.git dest={{ prezto_project_dir }}
 
-- name: "link gitconfig"
-  shell: "ln -s {{ dotfiles_project_dir }}/gitconfig ~/.gitconfig"
-  args:
-    creates: "~/.gitconfig"
-    removes: "{{ dotfiles_project_dir }}/gitconfig"
+- name: "replace gitconfig"
+  template:
+    src: "gitconfig"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
 
-- name: "link hgrc"
-  shell: "ln -s {{ dotfiles_project_dir }}/hgrc ~/.hgrc"
-  args:
-    creates: "~/.hgrc"
-    removes: "{{ dotfiles_project_dir }}/hgrc"
+- name: "replace hgrc"
+  template:
+    src: "hgrc"
+    dest: "{{ ansible_env.HOME }}/.hgrc"
 
-- name: "link tmux.conf"
-  shell: "ln -s {{ dotfiles_project_dir }}/tmux.conf ~/.tmux.conf"
-  args:
-    creates: "~/.tmux.conf"
-    removes: "{{ dotfiles_project_dir }}/tmux.conf"
+- name: "replace tmux.conf"
+  template:
+    src: "tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
 
-- name: "link vimrc"
-  shell: "ln -s {{ dotfiles_project_dir }}/vimrc ~/.vimrc"
-  args:
-    creates: "~/.vimrc"
-    removes: "{{ dotfiles_project_dir }}/vimrc"
+- name: "replace vimrc"
+  template:
+    src: "vimrc"
+    dest: "{{ ansible_env.HOME }}/.vimrc"
 
-- name: "link zpreztorc"
-  shell: "ln -s {{ dotfiles_project_dir }}/zpreztorc ~/.zpreztorc"
-  args:
-    creates: "~/.zpreztorc"
-    removes: "{{ dotfiles_project_dir }}/zpreztorc"
+- name: "replace zpreztorc"
+  template:
+    src: "zpreztorc"
+    dest: "{{ ansible_env.HOME }}/.zpreztorc"
 
-- name: "link zshenv"
-  shell: "ln -s {{ dotfiles_project_dir }}/zshenv ~/.zshenv"
-  args:
-    creates: "~/.zshenv"
-    removes: "{{ dotfiles_project_dir }}/zshenv"
+- name: "replace zshenv"
+  template:
+    src: "zshenv"
+    dest: "{{ ansible_env.HOME }}/.zshenv"
 
-- name: "link zshrc"
-  shell: "ln -s {{ dotfiles_project_dir }}/zshrc ~/.zshrc"
-  args:
-    creates: "~/.zshrc"
-    removes: "{{ dotfiles_project_dir }}/zshrc"
+- name: "replace zshrc"
+  template:
+    src: "zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
 
 - name: "link zprezto"
-  shell: "ln -s {{ dotfiles_project_dir }}/opt/zprezto ~/.zprezto"
+  shell: "ln -s {{ prezto_project_dir }} ~/.zprezto"
   args:
     creates: "~/.zprezto"
-    removes: "{{ dotfiles_project_dir }}/opt/zprezto"
+    removes: "{{ prezto_project_dir }}"

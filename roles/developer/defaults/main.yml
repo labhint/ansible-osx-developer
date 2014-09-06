@@ -1,3 +1,10 @@
 projects_dir: "~/Projects"
-dotfiles_project_dir: "{{projects_dir}}/dotfiles"
+prezto_project_dir: "{{projects_dir}}/zprezto"
 homebrew_cask_app_dir: "/Applications"
+
+gitconfig_user_name: "Pavel Chernykh"
+gitconfig_user_email: "pavel.v.chernykh@gmail.com"
+gitconfig_github_user: "pavel-v-chernykh"
+
+hgrc_ui_user_name: "Pavel Chernykh"
+hgrc_ui_user_email: "pavel.v.chernykh@gmail.com"

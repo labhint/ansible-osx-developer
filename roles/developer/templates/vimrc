@@ -1,0 +1,969 @@
+" Version Check ---------------------------------------------------------- {{{
+
+if v:version < 703
+    echo '.vimrc requires Vim 7.3 or greater'
+    finish
+endif
+
+" }}}
+" General Settings ------------------------------------------------------- {{{
+
+" Turn off vi compatibility.
+set nocompatible
+
+" Turning filetype off is necessary to load ftdetect files.
+filetype off
+
+" SECURE: Do not parse mode comments in files.
+set modelines=0
+
+" Large undo levels.
+set undolevels=100
+
+" Size of command history.
+set history=50
+
+" Always use unicode.
+set encoding=utf8
+
+" Share the clipboard.
+" set clipboard+=unnamed
+
+" Fix backspace.
+set backspace=indent,eol,start
+
+" Store swap files in one place.
+set dir^=$HOME/.vim/swap//
+
+" Store view files in one place.
+set viewdir=$HOME/.vim/view//
+
+" Auto read externally modified files.
+set autoread
+
+" Auto write before certain commands.
+set autowrite
+
+" Set spell check language.
+set spelllang=en_au
+
+" Save battery by letting OS flush to disk.
+set nofsync
+
+" Set the default shell.
+" set shell=bash
+
+" Leaders ---------------------------------------------------------------- {{{
+
+" Comma is easier to access than backslash.
+let mapleader = ','
+
+" Semicolon is second-easier to type than backslash.
+let maplocalleader = ';'
+
+" }}}
+
+" }}}
+" Presentation ----------------------------------------------------------- {{{
+
+" Never let a window be less than 1px.
+set winminheight=1
+
+" Show short messages, no intro.
+set shortmess=aIoO
+
+" Show the current mode.
+set showmode
+
+" Show last command.
+set showcmd
+
+" Scroll n lines before vertical edge.
+set scrolloff=3
+
+" Scroll n lines before horizontal edge.
+set sidescroll=3
+
+" Page on extended output.
+set more
+
+" Ring bell on error messages.
+set errorbells
+
+" Show visual cue on error messages.
+set visualbell
+
+" Don't keep windows at equal size.
+set noequalalways
+
+" Split window appears below the current one.
+set splitbelow
+
+" Split window appears right the current one.
+set splitright
+
+" Line break at the characters in breakat.
+set linebreak
+
+" Show ↪ at the beginning of wrapped lines.
+let &showbreak=nr2char(8618).' '
+
+" Fast scrolling when on a decent connection.
+set ttyfast
+
+" Do not draw while executing macros.
+set lazyredraw
+
+" Set keys move cursor to next/previous line.
+set ww+=<,>,[,]
+
+" Show the cursor position.
+set ruler
+
+" Show how far a line is from current line.
+set relativenumber
+
+" Allow hidden buffers.
+set hidden
+
+" Show matching parenthesis.
+set showmatch
+
+" Match for 3 tenths of a second.
+set matchtime=3
+
+" Pairs to match.
+set matchpairs+=<:>
+
+" Print syntax highlighting.
+set printoptions+=syntax:y
+
+" Print line numbers.
+set printoptions+=number:y
+
+" Enable error jumping.
+set cf
+
+" Set diff fill char.
+set fillchars+=diff:⣿
+
+" Enable syntax highlighting.
+syntax on
+
+" Detect file type.
+filetype on
+
+" Enable file indenting.
+filetype indent on
+
+" Load syntax files for better indenting.
+filetype plugin indent on
+
+" }}}
+" Terminal Interface ----------------------------------------------------- {{{
+
+if &term =~ 'xterm'
+    if &termencoding == ''
+        set termencoding=utf-8
+    endif
+
+    if has('title')
+        " Restore the title of the shell upon exit.
+        let &titleold = 'Terminal'
+
+        " Set the title.
+        set title
+    endif
+
+    if has('mouse')
+        " Terminal type for mouse recognition.
+        set ttymouse=xterm2
+    endif
+
+    " Restore screen on exit.
+    set restorescreen
+
+    " Terminal in 'termcap' mode.
+    set t_ti=7[r[?47h
+
+    " Terminal out of 'termcap mode.
+    set t_te=[?47l8
+
+endif
+
+" Status Line ------------------------------------------------------------ {{{
+
+" Always show status.
+set laststatus=2
+
+" Disable status line fill chars.
+set fillchars+=stl:\ ,stlnc:\ " Space.
+
+" }}}
+
+" }}}
+" Search and Replace ----------------------------------------------------- {{{
+
+" Show partial matches as search is entered.
+set incsearch
+
+" Highlight search patterns.
+set hlsearch
+
+" Enable case insensitive search.
+set ignorecase
+
+" Disable case insensitivity if mixed case.
+set smartcase
+
+" Wrap to top of buffer when searching.
+set wrapscan
+
+" Make search and replace global by default.
+set gdefault
+
+" Use sane regexes.
+nnoremap / /\v
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+
+" Keep search matches in the middle of the window.
+nnoremap * *zzzv
+nnoremap # #zzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Keep jumps in the middle of the window.
+nnoremap g, g,zz
+nnoremap g; g;zz
+
+" Open a QuickFix window for the last search.
+nnoremap <silent> <Leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Ack last search.
+nnoremap <silent> <Leader>? :execute "Ack! '" .
+    \ substitute(
+        \ substitute(
+            \ substitute(
+                \ @/, "\\\\<", "\\\\b", ""),
+            \ "\\\\>", "\\\\b", ""),
+        \ "\\\\v", "", "") .
+    \ "'"<CR>
+
+" }}}
+" Whitespace ------------------------------------------------------------- {{{
+
+" Do not select the end of line.
+set selection=old
+
+" Expand tabs into spaces.
+set expandtab
+
+" Set tab to equal 4 spaces.
+set tabstop=4
+
+" Set soft tabs equal to 4 spaces.
+set softtabstop=4
+
+" Set auto indent spacing.
+set shiftwidth=4
+
+" Shift to the next round tab stop.
+set shiftround
+
+" Insert spaces in front of lines.
+set smarttab
+
+" Copy indent from the current line.
+set autoindent
+
+" Wrap text.
+set wrap
+
+" Maximum line width before wrapping.
+set textwidth=80
+
+" Describes how auto formatting is to be done.
+set formatoptions=qrn1
+
+" Allow virtual editing in visual block mode.
+set virtualedit+=block
+
+" Invisible Characters ----------------------------------------------------{{{
+
+" Do not show invisible characters.
+set nolist
+
+" List of characters to show instead of whitespace.
+set listchars=tab:▸\ ,eol:¬,trail:⌴,extends:❯,precedes:❮
+
+" Highlight VCS conflict markers.
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" }}}
+
+" }}}
+" Folding ---------------------------------------------------------------- {{{
+
+" Enable folding.
+set foldenable
+
+" Syntax dictates folding.
+set foldmethod=syntax
+
+" Use a one level fold.
+set foldlevel=0
+
+" Do not nest more than 2 folds.
+set foldnestmax=2
+
+" Focus the current fold.
+nnoremap <Leader>z zMzvzz
+
+" Make zO recursively open the top level fold regardless of cursor placement.
+nnoremap zO zCzO
+
+" Credit: Steve Losh
+function! SJLFoldText()
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " Expand tabs into spaces.
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . ' ...' .
+        \ repeat(" ",fillcharcount) .
+        \ foldedlinecount . ' ...' . ' '
+endfunction
+set foldtext=SJLFoldText()
+
+" }}}
+" File Name Auto Completion ---------------------------------------------- {{{
+
+" Show a list entries.
+set wildmenu
+
+" Enable completion on tab.
+set wildchar=<Tab>
+
+" Insert mode completion.
+set completeopt=longest,menu,preview
+
+" Wildcard expansion completion.
+set wildmode=list:longest,list:full
+
+" Keyword completion for when Ctrl-P and Ctrl-N are pressed.
+set complete=.,t
+
+" Completion Ignored Files ----------------------------------------------- {{{
+
+" VCS directories.
+set wildignore+=.hg,.git,.svn
+
+" LaTeX intermediate files.
+set wildignore+=*.aux,*.out,*.toc
+
+" Binary images.
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+
+" Lua byte code.
+set wildignore+=*.luac
+
+" Compiled object files.
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest
+
+" Python byte code.
+set wildignore+=*.pyc
+
+" Compiled spelling lists.
+set wildignore+=*.spl
+
+" Backup, auto save, swap, undo, and view files.
+set wildignore+=*~,#*#,*.sw?,%*,*=
+
+" Mac OS X.
+set wildignore+=*.DS_Store
+
+" }}}
+
+" }}}
+" Auto Commands ---------------------------------------------------------- {{{
+
+" Auto save on lost focus. DISABLED: Closes help file when focus is lost.
+" au FocusLost * silent bufdo if !empty(bufname('%')) && !&ro | update | endif
+" au FocusLost * :wa
+
+" Remember folds."
+set viewoptions=folds
+au BufWinLeave * silent! mkview
+au BufWinEnter * silent! loadview
+
+" Switch the CWD to the current buffer.
+" au BufEnter * lcd %:p:h
+
+" Resize splits when the window is resized.
+au VimResized * exe "normal! \<c-w>="
+
+" Strip trailing whitespace.
+au BufWritePre,FileWritePre,FileAppendPre,FilterWritePre *
+    \ call StripTrailingWhitespace()
+
+" Cursorline ------------------------------------------------------------- {{{
+
+" Highlight the current line in the current window.
+aug cursorline
+    au!
+    au BufEnter * set cursorline
+    au BufLeave * set nocursorline
+    au InsertEnter * set nocursorline
+    au InsertLeave * set cursorline
+aug end
+
+" }}}
+" Trailing Whitespace ---------------------------------------------------- {{{
+
+aug trailing
+    au!
+    au InsertEnter * :set listchars-=trail:⌴
+    au InsertLeave * :set listchars+=trail:⌴
+aug end
+
+" }}}
+
+" }}}
+" File Settings ---------------------------------------------------------- {{{
+
+" BASH ------------------------------------------------------------------- {{{
+
+aug ft_bash
+    au!
+    au BufNewFile,BufRead bash-fc-* setlocal filetype=sh
+    setlocal tabstop=2 softtabstop=2 shiftwidth=2
+aug end
+
+" }}}
+" CoffeeScript ----------------------------------------------------------- {{{
+
+aug ft_coffee
+    au!
+    au FileType coffee
+        \ setlocal
+            \ tabstop=4
+            \ softtabstop=4
+            \ shiftwidth=4
+            \ textwidth=79
+            \ colorcolumn=80
+aug end
+
+" }}}
+" CSS -------------------------------------------------------------------- {{{
+
+aug ft_css
+    au!
+    au BufNewFile,BufRead *.less setlocal filetype=less
+
+    " Use cc to change lines without borking the indentation.
+    au BufNewFile,BufRead *.css,*.less nnoremap <buffer> cc ddko
+
+    " Use <Leader>S to sort properties.
+    au BufNewFile,BufRead *.css,*.less
+        \ nnoremap <buffer> <LocalLeader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+    " Make {<CR> insert a pair of brackets in such a way that the cursor is
+    " correctly positioned inside of them and the following code doesn't get
+    " unfolded.
+    au BufNewFile,BufRead *.css,*.less
+        \ inoremap <buffer> {<CR> {}<left><CR>.<CR><esc>kA<bs><tab>
+aug end
+
+" }}}
+" Git -------------------------------------------------------------------- {{{
+
+aug ft_git
+    au!
+    au FileType git* setlocal
+        \ noexpandtab
+        \ tabstop=4
+        \ shiftwidth=4
+        \ nofoldenable
+        \ textwidth=72
+
+" Fugitive --------------------------------------------------------------- {{{
+
+    " Jump to the last known position when reopening a file.
+    au BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
+    \ endif
+
+    " Map '..' to go up a directory in fugitive tree/blob buffers.
+    au User fugitive
+    \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+    \   nnoremap <buffer> .. :edit %:h<CR> |
+    \ endif
+
+    " Auto-clean fugitive buffers.
+    au BufReadPost fugitive://* set bufhidden=delete
+
+" }}}
+
+aug end
+
+" }}}
+" HTML ------------------------------------------------------------------- {{{
+
+aug ft_html
+    au!
+    au FileType html compiler html
+    inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<CR>a
+aug end
+
+" }}}
+" Mail-------------------------------------------------------------------- {{{
+
+aug ft_mail
+    au!
+    au Filetype mail setlocal spell
+aug end
+
+" }}}
+" Markdown --------------------------------------------------------------- {{{
+
+aug ft_markdown
+    au!
+    au BufNewFile,BufRead *.m*down setlocal filetype=markdown
+aug end
+
+" }}}
+" Mercurial -------------------------------------------------------------- {{{
+
+aug ft_mercurial
+    au!
+    au BufNewFile,BufRead .hgrc,hgrc,Mercurial.ini setlocal filetype=dosini
+aug end
+
+" }}}
+" Python ----------------------------------------------------------------- {{{
+
+aug ft_python
+    au!
+    au FileType python
+        \ noremap <buffer> <LocalLeader>rr :RopeRename<CR>
+        \ vnoremap <buffer> <LocalLeader>rm :RopeExtractMethod<CR>
+        \ noremap <buffer> <LocalLeader>ri :RopeOrganizeImports<CR>
+        \ setlocal
+            \ omnifunc=pythoncomplete#Complete
+            \ tabstop=4
+            \ softtabstop=4
+            \ shiftwidth=4
+            \ textwidth=79
+            \ colorcolumn=80
+
+        " Pydoc
+        au FileType python noremap <buffer> <
+        au FileType python noremap <buffer> <LocalLeader>ds :call ShowPyDoc('<C-R><C-W>', 1)<CR>
+aug end
+
+" }}}
+" Python (Django) -------------------------------------------------------- {{{
+
+aug ft_django
+    au!
+    au BufNewFile,BufRead dashboard.py normal! zR
+    au BufNewFile,BufRead settings.py setlocal foldmethod=marker
+    au BufNewFile,BufRead urls.py
+        \ setlocal nowrap
+        \ normal! zR
+    au BufNewFile,BufRead admin.py,urls.py,models.py,views.py,settings.py,forms.py
+        \ setlocal filetype=python.django
+    au BufNewFile,BufRead common_settings.py
+        \ setlocal filetype=python.django foldmethod=marker
+aug end
+
+" }}}
+" QuickFix --------------------------------------------------------------- {{{
+
+aug ft_quickfix
+    au!
+    au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
+aug end
+
+" }}}
+" Text ------------------------------------------------------------------- {{{
+
+aug ft_text
+    au!
+    " Enable soft-wrapping for text files
+    au FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
+aug end
+
+" }}}
+" Vagrant ---------------------------------------------------------------- {{{
+
+aug ft_vagrant
+    au!
+    au BufRead,BufNewFile Vagrantfile set filetype=ruby
+aug end
+
+" }}}
+" Vim -------------------------------------------------------------------- {{{
+
+aug ft_vim
+    au!
+    au FileType vim,help setlocal textwidth=78
+    au FileType vim setlocal foldmethod=marker colorcolumn=79
+aug end
+
+" }}}
+" Zsh -------------------------------------------------------------------- {{{
+
+aug ft_zsh
+    au!
+    au BufNewFile,BufRead zshecl*,prompt_*_setup setlocal filetype=zsh
+    setlocal tabstop=2 softtabstop=2 shiftwidth=2
+aug end
+
+" }}}
+
+" }}}
+" Key Remapping ---------------------------------------------------------- {{{
+
+" Tab Navigation --------------------------------------------------------- {{{
+
+" Easily create a new tab.
+map <Leader>tt :tabnew<CR>
+
+" Easily close a tab.
+map <Leader>tc :tabclose<CR>
+
+" Easily move a tab.
+noremap <Leader>tm :tabmove<CR>
+
+" Easily go to next tab.
+noremap <Leader>tn :tabnext<CR>
+
+" Easily go to previous tab.
+noremap <Leader>tp :tabprevious<CR>
+
+" }}}
+" Window Navigation ------------------------------------------------------ {{{
+
+" Navigate to left window.
+nnoremap <C-h> <C-w>h
+
+" Navigate to down window.
+nnoremap <C-j> <C-w>j
+
+" Navigate to top window.
+nnoremap <C-k> <C-w>k
+
+" Navigate to right window.
+nnoremap <C-l> <C-w>l
+
+" Horizontal split then move to bottom window.
+nnoremap <Leader>- <C-w>s
+
+" Vertical split then move to right window.
+nnoremap <Leader>\| <C-w>v<C-w>l
+
+" }}}
+" Text Alignment --------------------------------------------------------- {{{
+
+nnoremap <Leader>Al :left<CR>
+nnoremap <Leader>Ac :center<CR>
+nnoremap <Leader>Ar :right<CR>
+vnoremap <Leader>Al :left<CR>
+vnoremap <Leader>Ac :center<CR>
+vnoremap <Leader>Ar :right<CR>
+
+" }}}
+" Text Movement ---------------------------------------------------------- {{{
+
+noremap <Leader>j :m+<CR>
+noremap <Leader>k :m-2<CR>
+vnoremap <Leader>j :m'>+<CR>gv
+vnoremap <Leader>k :m-2<CR>gv
+
+" }}}
+" Miscellaneous Mappings ------------------------------------------------- {{{
+
+" Disable search match highlight.
+nnoremap <Leader><space> :noh<CR>
+
+" Duplicate a selection.
+vnoremap D y'>p
+
+" Tab to indent in visual mode.
+vnoremap <Tab> >gv
+
+" Shift+Tab to unindent in visual mode.
+vnoremap <S-Tab> <gv
+
+" Re hard wrap paragraph.
+nnoremap <Leader>q gqip
+
+" Reselect pasted text.
+nnoremap <Leader>v V`]
+
+" Reselect text ater indent/unindent.
+vnoremap < <gv
+vnoremap > >gv
+
+" Display-wise up/down movement instead of linewise.
+noremap j gj
+noremap k gk
+
+" Faster ESC.
+inoremap jk <ESC>
+inoremap kj <ESC>
+
+" Format Paragraph.
+nnoremap <Leader>q gwap
+
+" Formatting, TextMate-style.
+nnoremap Q gqip
+
+" Change Case.
+nnoremap <C-u> gUiw
+inoremap <C-u> <ESC>gUiwea
+
+" Write with sudo.
+cnoremap w!! w !sudo tee % >/dev/null
+
+" Toggle spell checking.
+nnoremap <silent><Leader>s :set spell!<CR>
+
+" Shift+P replace selection without overwriting default register in vmode.
+vnoremap P p :call setreg('"', getreg('0'))<CR>
+
+" Strip trailing whitespace.
+nnoremap <Leader>W call StripTrailingWhiteSpace()
+
+" Quick return.
+inoremap <C-CR> <ESC>A<CR>
+inoremap <S-C-CR> <ESC>A:<CR>
+
+" Fix linewise visual selection of various text objects.
+nnoremap VV V
+nnoremap Vit vitVkoj
+nnoremap Vat vatV
+nnoremap Vab vabV
+nnoremap VaB vaBV
+
+" Faster substitute.
+nnoremap <Leader>S :%s//<left>
+
+" Easier linewise reselection.
+nnoremap <Leader>v V`]
+
+" Toggle paste.
+set pastetoggle=<F8>
+
+" Replaste.
+nnoremap <D-p> "_ddPV`]
+
+" Diff.
+nnoremap <silent><Leader>do :diffoff!<CR>
+nnoremap <silent><Leader>dg :diffget<CR>:diffupdate<CR>
+nnoremap <silent><Leader>dp :diffput<CR>:diffupdate<CR>
+nnoremap <silent><Leader>du :diffupdate<CR>
+
+" Better completion.
+set completeopt=longest,menuone,preview
+" inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-p> pumvisible() ?
+    \ '<C-n>'  : '<C-n><C-r>=pumvisible() ?
+        \ "\<lt>up>" : ""<CR>'
+inoremap <expr> <C-n> pumvisible() ?
+    \ '<C-n>'  : '<C-n><C-r>=pumvisible() ?
+    \ "\<lt>Down>" : ""<CR>'
+
+" }}}
+
+" }}}
+" Text Objects (Credit: Steve Losh) -------------------------------------- {{{
+
+" Shortcut for [] -------------------------------------------------------- {{{
+
+onoremap id i[
+onoremap ad a[
+vnoremap id i[
+vnoremap ad a[
+
+" }}}
+" Next/Last () ----------------------------------------------------------- {{{
+
+vnoremap <silent> inb :<C-U>normal! f(vib<CR>
+onoremap <silent> inb :<C-U>normal! f(vib<CR>
+vnoremap <silent> anb :<C-U>normal! f(vab<CR>
+onoremap <silent> anb :<C-U>normal! f(vab<CR>
+vnoremap <silent> in( :<C-U>normal! f(vi(<CR>
+onoremap <silent> in( :<C-U>normal! f(vi(<CR>
+vnoremap <silent> an( :<C-U>normal! f(va(<CR>
+onoremap <silent> an( :<C-U>normal! f(va(<CR>
+
+vnoremap <silent> ilb :<C-U>normal! F)vib<CR>
+onoremap <silent> ilb :<C-U>normal! F)vib<CR>
+vnoremap <silent> alb :<C-U>normal! F)vab<CR>
+onoremap <silent> alb :<C-U>normal! F)vab<CR>
+vnoremap <silent> il( :<C-U>normal! F)vi(<CR>
+onoremap <silent> il( :<C-U>normal! F)vi(<CR>
+vnoremap <silent> al( :<C-U>normal! F)va(<CR>
+onoremap <silent> al( :<C-U>normal! F)va(<CR>
+
+" }}}
+" Next/Last {} ----------------------------------------------------------- {{{
+
+vnoremap <silent> inB :<C-U>normal! f{viB<CR>
+onoremap <silent> inB :<C-U>normal! f{viB<CR>
+vnoremap <silent> anB :<C-U>normal! f{vaB<CR>
+onoremap <silent> anB :<C-U>normal! f{vaB<CR>
+vnoremap <silent> in{ :<C-U>normal! f{vi{<CR>
+onoremap <silent> in{ :<C-U>normal! f{vi{<CR>
+vnoremap <silent> an{ :<C-U>normal! f{va{<CR>
+onoremap <silent> an{ :<C-U>normal! f{va{<CR>
+
+vnoremap <silent> ilB :<C-U>normal! F}viB<CR>
+onoremap <silent> ilB :<C-U>normal! F}viB<CR>
+vnoremap <silent> alB :<C-U>normal! F}vaB<CR>
+onoremap <silent> alB :<C-U>normal! F}vaB<CR>
+vnoremap <silent> il{ :<C-U>normal! F}vi{<CR>
+onoremap <silent> il{ :<C-U>normal! F}vi{<CR>
+vnoremap <silent> al{ :<C-U>normal! F}va{<CR>
+onoremap <silent> al{ :<C-U>normal! F}va{<CR>
+
+" }}}
+" Next/Last [] ----------------------------------------------------------- {{{
+
+vnoremap <silent> ind :<C-U>normal! f[vi[<CR>
+onoremap <silent> ind :<C-U>normal! f[vi[<CR>
+vnoremap <silent> and :<C-U>normal! f[va[<CR>
+onoremap <silent> and :<C-U>normal! f[va[<CR>
+vnoremap <silent> in[ :<C-U>normal! f[vi[<CR>
+onoremap <silent> in[ :<C-U>normal! f[vi[<CR>
+vnoremap <silent> an[ :<C-U>normal! f[va[<CR>
+onoremap <silent> an[ :<C-U>normal! f[va[<CR>
+
+vnoremap <silent> ild :<C-U>normal! F]vi[<CR>
+onoremap <silent> ild :<C-U>normal! F]vi[<CR>
+vnoremap <silent> ald :<C-U>normal! F]va[<CR>
+onoremap <silent> ald :<C-U>normal! F]va[<CR>
+vnoremap <silent> il[ :<C-U>normal! F]vi[<CR>
+onoremap <silent> il[ :<C-U>normal! F]vi[<CR>
+vnoremap <silent> al[ :<C-U>normal! F]va[<CR>
+onoremap <silent> al[ :<C-U>normal! F]va[<CR>
+
+" }}}
+" Next/Last <> ----------------------------------------------------------- {{{
+
+vnoremap <silent> in< :<C-U>normal! f<vi<<CR>
+onoremap <silent> in< :<C-U>normal! f<vi<<CR>
+vnoremap <silent> an< :<C-U>normal! f<va<<CR>
+onoremap <silent> an< :<C-U>normal! f<va<<CR>
+
+vnoremap <silent> il< :<C-U>normal! f>vi<<CR>
+onoremap <silent> il< :<C-U>normal! f>vi<<CR>
+vnoremap <silent> al< :<C-U>normal! f>va<<CR>
+onoremap <silent> al< :<C-U>normal! f>va<<CR>
+
+" }}}
+" Next '' ---------------------------------------------------------------- {{{
+
+vnoremap <silent> in' :<C-U>normal! f'vi'<CR>
+onoremap <silent> in' :<C-U>normal! f'vi'<CR>
+vnoremap <silent> an' :<C-U>normal! f'va'<CR>
+onoremap <silent> an' :<C-U>normal! f'va'<CR>
+
+vnoremap <silent> il' :<C-U>normal! F'vi'<CR>
+onoremap <silent> il' :<C-U>normal! F'vi'<CR>
+vnoremap <silent> al' :<C-U>normal! F'va'<CR>
+onoremap <silent> al' :<C-U>normal! F'va'<CR>
+
+" }}}
+" Next "" ---------------------------------------------------------------- {{{
+
+vnoremap <silent> in" :<C-U>normal! f"vi"<CR>
+onoremap <silent> in" :<C-U>normal! f"vi"<CR>
+vnoremap <silent> an" :<C-U>normal! f"va"<CR>
+onoremap <silent> an" :<C-U>normal! f"va"<CR>
+
+vnoremap <silent> il" :<C-U>normal! F"vi"<CR>
+onoremap <silent> il" :<C-U>normal! F"vi"<CR>
+vnoremap <silent> al" :<C-U>normal! F"va"<CR>
+onoremap <silent> al" :<C-U>normal! F"va"<CR>
+
+" }}}
+
+" }}}
+" Abbreviations ---------------------------------------------------------- {{{
+
+cabbr cdf cd %:p:h<CR>
+cabbr lcdf lcd %:p:h<CR>
+
+" }}}
+" Functions -------------------------------------------------------------- {{{
+
+" Open URL --------------------------------------------------------------- {{{
+
+command! -bar -nargs=1 OpenURL :!open <args>
+function! OpenURLUnderCursor()
+    let l:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
+    if l:uri != ""
+        exec '!open "' . l:uri . '"'
+    else
+        echo 'No URL found in line'
+    endif
+endfunction
+nmap <silent> <Leader>w :call OpenURLUnderCursor()<CR>
+
+" }}}
+" Error Toggle ----------------------------------------------------------- {{{
+
+command! ErrorsToggle call ErrorsToggle()
+function! ErrorsToggle()
+    if exists("w:is_error_window")
+        unlet w:is_error_window
+        exec "q"
+    else
+        exec "Errors"
+        lopen
+        let w:is_error_window = 1
+    endif
+endfunction
+
+command! -bang -nargs=? QFixToggle call QFixToggle(<bang>0)
+function! QFixToggle(forced)
+    if exists("g:qfix_win") && a:forced == 0
+        cclose
+        unlet g:qfix_win
+    else
+        copen 10
+        let g:qfix_win = bufnr("$")
+    endif
+endfunction
+
+nmap <silent> <F3> :ErrorsToggle<CR>
+nmap <silent> <F4> :QFixToggle<CR>
+
+" }}}
+" Strip Trailing Whitespace ---------------------------------------------- {{{
+
+function! StripTrailingWhitespace()
+    if !&binary && &modifiable && &filetype != 'diff'
+        let l:winview = winsaveview()
+        %s/\s\+$//e
+        let @/=''
+        call winrestview(l:winview)
+    endif
+endfunction
+
+" }}}
+
+" }}}

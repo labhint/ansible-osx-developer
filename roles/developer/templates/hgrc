@@ -1,0 +1,61 @@
+[ui]
+username = {{ hgrc_ui_user_name }} <{{ hgrc_ui_user_email }}>
+editor = vim
+merge = Kaleidoscope
+
+[alias]
+a = annotate -vundl
+c = commit
+bm = bookmark
+cim = commit -m
+cam = commit --amend
+d = diff
+ed = extdiff
+g = graft
+i = in
+kd = ksdiff
+l = log
+lm = log -u "{{ hgrc_ui_user_name }}"
+f = fetch
+h = heads
+m = merge
+o = out
+pl = pull
+plu = pull -u
+plr = pull --rebase
+ps = push
+r = revert
+rb = rebase
+s = status
+t = transplant
+u = update
+uc = update -C
+
+[extensions]
+color =
+mercurial_keyring =
+fetch =
+transplant =
+bookmarks =
+pager =
+graphlog =
+purge =
+churn =
+rebase =
+mq =
+hgext.extdiff =
+churn =
+
+[diff]
+git = True
+
+[extdiff]
+cmd.ksdiff = /usr/local/bin/ksdiff
+opts.ksdiff = --changeset --wait --filelist
+
+[merge-tools]
+Kaleidoscope.executable = /usr/local/bin/ksdiff
+Kaleidoscope.args = --merge --output $output --base $base -- $local $other
+
+[pager]
+pager = less

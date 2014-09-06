@@ -35,6 +35,9 @@
 - name: "install zsh"
   homebrew: name=zsh state=present
 
+- name: "install terminal-notifier"
+  homebrew: name=terminal-notifier state=present
+
 - name: "install total terminal"
   homebrew_cask: name=totalterminal state=present
 

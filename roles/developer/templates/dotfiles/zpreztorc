@@ -75,14 +75,14 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 # AWS
 #
 
-zstyle ':prezto:module:aws' aws-default-profile 'my'
+zstyle ':prezto:module:aws' aws-default-profile '{{ aws_default_profile }}'
 
 #
 # Go lang
 #
 
-zstyle ':prezto:module:golang' go-root '/usr/local/Cellar/go/1.3.1/libexec'
-zstyle ':prezto:module:golang' go-path "/Users/$USER/Projects/go"
+zstyle ':prezto:module:golang' go-root "/usr/local/Cellar/go/$(brew list go --versions | awk '{print $3;}')/libexec"
+zstyle ':prezto:module:golang' go-path "{{ projects_dir }}/go"
 
 #
 # History Substring Search

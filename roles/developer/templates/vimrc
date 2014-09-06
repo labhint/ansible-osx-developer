@@ -1,12 +1,12 @@
-" Version Check ---------------------------------------------------------- {{{
+" Version Check ---------------------------------------------------------- {
 
 if v:version < 703
     echo '.vimrc requires Vim 7.3 or greater'
     finish
 endif
 
-" }}}
-" General Settings ------------------------------------------------------- {{{
+" }
+" General Settings ------------------------------------------------------- {
 
 " Turn off vi compatibility.
 set nocompatible
@@ -53,7 +53,7 @@ set nofsync
 " Set the default shell.
 " set shell=bash
 
-" Leaders ---------------------------------------------------------------- {{{
+" Leaders ---------------------------------------------------------------- {
 
 " Comma is easier to access than backslash.
 let mapleader = ','
@@ -61,10 +61,10 @@ let mapleader = ','
 " Semicolon is second-easier to type than backslash.
 let maplocalleader = ';'
 
-" }}}
+" }
 
-" }}}
-" Presentation ----------------------------------------------------------- {{{
+" }
+" Presentation ----------------------------------------------------------- {
 
 " Never let a window be less than 1px.
 set winminheight=1
@@ -159,8 +159,8 @@ filetype indent on
 " Load syntax files for better indenting.
 filetype plugin indent on
 
-" }}}
-" Terminal Interface ----------------------------------------------------- {{{
+" }
+" Terminal Interface ----------------------------------------------------- {
 
 if &term =~ 'xterm'
     if &termencoding == ''
@@ -191,7 +191,7 @@ if &term =~ 'xterm'
 
 endif
 
-" Status Line ------------------------------------------------------------ {{{
+" Status Line ------------------------------------------------------------ {
 
 " Always show status.
 set laststatus=2
@@ -199,10 +199,10 @@ set laststatus=2
 " Disable status line fill chars.
 set fillchars+=stl:\ ,stlnc:\ " Space.
 
-" }}}
+" }
 
-" }}}
-" Search and Replace ----------------------------------------------------- {{{
+" }
+" Search and Replace ----------------------------------------------------- {
 
 " Show partial matches as search is entered.
 set incsearch
@@ -251,8 +251,8 @@ nnoremap <silent> <Leader>? :execute "Ack! '" .
         \ "\\\\v", "", "") .
     \ "'"<CR>
 
-" }}}
-" Whitespace ------------------------------------------------------------- {{{
+" }
+" Whitespace ------------------------------------------------------------- {
 
 " Do not select the end of line.
 set selection=old
@@ -290,7 +290,7 @@ set formatoptions=qrn1
 " Allow virtual editing in visual block mode.
 set virtualedit+=block
 
-" Invisible Characters ----------------------------------------------------{{{
+" Invisible Characters ----------------------------------------------------{
 
 " Do not show invisible characters.
 set nolist
@@ -301,10 +301,10 @@ set listchars=tab:▸\ ,eol:¬,trail:⌴,extends:❯,precedes:❮
 " Highlight VCS conflict markers.
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" }}}
+" }
 
-" }}}
-" Folding ---------------------------------------------------------------- {{{
+" }
+" Folding ---------------------------------------------------------------- {
 
 " Enable folding.
 set foldenable
@@ -344,8 +344,8 @@ function! SJLFoldText()
 endfunction
 set foldtext=SJLFoldText()
 
-" }}}
-" File Name Auto Completion ---------------------------------------------- {{{
+" }
+" File Name Auto Completion ---------------------------------------------- {
 
 " Show a list entries.
 set wildmenu
@@ -362,7 +362,7 @@ set wildmode=list:longest,list:full
 " Keyword completion for when Ctrl-P and Ctrl-N are pressed.
 set complete=.,t
 
-" Completion Ignored Files ----------------------------------------------- {{{
+" Completion Ignored Files ----------------------------------------------- {
 
 " VCS directories.
 set wildignore+=.hg,.git,.svn
@@ -391,10 +391,10 @@ set wildignore+=*~,#*#,*.sw?,%*,*=
 " Mac OS X.
 set wildignore+=*.DS_Store
 
-" }}}
+" }
 
-" }}}
-" Auto Commands ---------------------------------------------------------- {{{
+" }
+" Auto Commands ---------------------------------------------------------- {
 
 " Auto save on lost focus. DISABLED: Closes help file when focus is lost.
 " au FocusLost * silent bufdo if !empty(bufname('%')) && !&ro | update | endif
@@ -415,7 +415,7 @@ au VimResized * exe "normal! \<c-w>="
 au BufWritePre,FileWritePre,FileAppendPre,FilterWritePre *
     \ call StripTrailingWhitespace()
 
-" Cursorline ------------------------------------------------------------- {{{
+" Cursorline ------------------------------------------------------------- {
 
 " Highlight the current line in the current window.
 aug cursorline
@@ -426,8 +426,8 @@ aug cursorline
     au InsertLeave * set cursorline
 aug end
 
-" }}}
-" Trailing Whitespace ---------------------------------------------------- {{{
+" }
+" Trailing Whitespace ---------------------------------------------------- {
 
 aug trailing
     au!
@@ -435,12 +435,12 @@ aug trailing
     au InsertLeave * :set listchars+=trail:⌴
 aug end
 
-" }}}
+" }
 
-" }}}
-" File Settings ---------------------------------------------------------- {{{
+" }
+" File Settings ---------------------------------------------------------- {
 
-" BASH ------------------------------------------------------------------- {{{
+" BASH ------------------------------------------------------------------- {
 
 aug ft_bash
     au!
@@ -448,8 +448,8 @@ aug ft_bash
     setlocal tabstop=2 softtabstop=2 shiftwidth=2
 aug end
 
-" }}}
-" CoffeeScript ----------------------------------------------------------- {{{
+" }
+" CoffeeScript ----------------------------------------------------------- {
 
 aug ft_coffee
     au!
@@ -462,8 +462,8 @@ aug ft_coffee
             \ colorcolumn=80
 aug end
 
-" }}}
-" CSS -------------------------------------------------------------------- {{{
+" }
+" CSS -------------------------------------------------------------------- {
 
 aug ft_css
     au!
@@ -483,8 +483,8 @@ aug ft_css
         \ inoremap <buffer> {<CR> {}<left><CR>.<CR><esc>kA<bs><tab>
 aug end
 
-" }}}
-" Git -------------------------------------------------------------------- {{{
+" }
+" Git -------------------------------------------------------------------- {
 
 aug ft_git
     au!
@@ -495,7 +495,7 @@ aug ft_git
         \ nofoldenable
         \ textwidth=72
 
-" Fugitive --------------------------------------------------------------- {{{
+" Fugitive --------------------------------------------------------------- {
 
     " Jump to the last known position when reopening a file.
     au BufReadPost *
@@ -512,12 +512,12 @@ aug ft_git
     " Auto-clean fugitive buffers.
     au BufReadPost fugitive://* set bufhidden=delete
 
-" }}}
+" }
 
 aug end
 
-" }}}
-" HTML ------------------------------------------------------------------- {{{
+" }
+" HTML ------------------------------------------------------------------- {
 
 aug ft_html
     au!
@@ -525,32 +525,32 @@ aug ft_html
     inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<CR>a
 aug end
 
-" }}}
-" Mail-------------------------------------------------------------------- {{{
+" }
+" Mail-------------------------------------------------------------------- {
 
 aug ft_mail
     au!
     au Filetype mail setlocal spell
 aug end
 
-" }}}
-" Markdown --------------------------------------------------------------- {{{
+" }
+" Markdown --------------------------------------------------------------- {
 
 aug ft_markdown
     au!
     au BufNewFile,BufRead *.m*down setlocal filetype=markdown
 aug end
 
-" }}}
-" Mercurial -------------------------------------------------------------- {{{
+" }
+" Mercurial -------------------------------------------------------------- {
 
 aug ft_mercurial
     au!
     au BufNewFile,BufRead .hgrc,hgrc,Mercurial.ini setlocal filetype=dosini
 aug end
 
-" }}}
-" Python ----------------------------------------------------------------- {{{
+" }
+" Python ----------------------------------------------------------------- {
 
 aug ft_python
     au!
@@ -571,8 +571,8 @@ aug ft_python
         au FileType python noremap <buffer> <LocalLeader>ds :call ShowPyDoc('<C-R><C-W>', 1)<CR>
 aug end
 
-" }}}
-" Python (Django) -------------------------------------------------------- {{{
+" }
+" Python (Django) -------------------------------------------------------- {
 
 aug ft_django
     au!
@@ -587,16 +587,16 @@ aug ft_django
         \ setlocal filetype=python.django foldmethod=marker
 aug end
 
-" }}}
-" QuickFix --------------------------------------------------------------- {{{
+" }
+" QuickFix --------------------------------------------------------------- {
 
 aug ft_quickfix
     au!
     au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
 aug end
 
-" }}}
-" Text ------------------------------------------------------------------- {{{
+" }
+" Text ------------------------------------------------------------------- {
 
 aug ft_text
     au!
@@ -604,16 +604,16 @@ aug ft_text
     au FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 aug end
 
-" }}}
-" Vagrant ---------------------------------------------------------------- {{{
+" }
+" Vagrant ---------------------------------------------------------------- {
 
 aug ft_vagrant
     au!
     au BufRead,BufNewFile Vagrantfile set filetype=ruby
 aug end
 
-" }}}
-" Vim -------------------------------------------------------------------- {{{
+" }
+" Vim -------------------------------------------------------------------- {
 
 aug ft_vim
     au!
@@ -621,8 +621,8 @@ aug ft_vim
     au FileType vim setlocal foldmethod=marker colorcolumn=79
 aug end
 
-" }}}
-" Zsh -------------------------------------------------------------------- {{{
+" }
+" Zsh -------------------------------------------------------------------- {
 
 aug ft_zsh
     au!
@@ -630,12 +630,12 @@ aug ft_zsh
     setlocal tabstop=2 softtabstop=2 shiftwidth=2
 aug end
 
-" }}}
+" }
 
-" }}}
-" Key Remapping ---------------------------------------------------------- {{{
+" }
+" Key Remapping ---------------------------------------------------------- {
 
-" Tab Navigation --------------------------------------------------------- {{{
+" Tab Navigation --------------------------------------------------------- {
 
 " Easily create a new tab.
 map <Leader>tt :tabnew<CR>
@@ -652,8 +652,8 @@ noremap <Leader>tn :tabnext<CR>
 " Easily go to previous tab.
 noremap <Leader>tp :tabprevious<CR>
 
-" }}}
-" Window Navigation ------------------------------------------------------ {{{
+" }
+" Window Navigation ------------------------------------------------------ {
 
 " Navigate to left window.
 nnoremap <C-h> <C-w>h
@@ -673,8 +673,8 @@ nnoremap <Leader>- <C-w>s
 " Vertical split then move to right window.
 nnoremap <Leader>\| <C-w>v<C-w>l
 
-" }}}
-" Text Alignment --------------------------------------------------------- {{{
+" }
+" Text Alignment --------------------------------------------------------- {
 
 nnoremap <Leader>Al :left<CR>
 nnoremap <Leader>Ac :center<CR>
@@ -683,16 +683,16 @@ vnoremap <Leader>Al :left<CR>
 vnoremap <Leader>Ac :center<CR>
 vnoremap <Leader>Ar :right<CR>
 
-" }}}
-" Text Movement ---------------------------------------------------------- {{{
+" }
+" Text Movement ---------------------------------------------------------- {
 
 noremap <Leader>j :m+<CR>
 noremap <Leader>k :m-2<CR>
 vnoremap <Leader>j :m'>+<CR>gv
 vnoremap <Leader>k :m-2<CR>gv
 
-" }}}
-" Miscellaneous Mappings ------------------------------------------------- {{{
+" }
+" Miscellaneous Mappings ------------------------------------------------- {
 
 " Disable search match highlight.
 nnoremap <Leader><space> :noh<CR>
@@ -785,20 +785,20 @@ inoremap <expr> <C-n> pumvisible() ?
     \ '<C-n>'  : '<C-n><C-r>=pumvisible() ?
     \ "\<lt>Down>" : ""<CR>'
 
-" }}}
+" }
 
-" }}}
-" Text Objects (Credit: Steve Losh) -------------------------------------- {{{
+" }
+" Text Objects (Credit: Steve Losh) -------------------------------------- {
 
-" Shortcut for [] -------------------------------------------------------- {{{
+" Shortcut for [] -------------------------------------------------------- {
 
 onoremap id i[
 onoremap ad a[
 vnoremap id i[
 vnoremap ad a[
 
-" }}}
-" Next/Last () ----------------------------------------------------------- {{{
+" }
+" Next/Last () ----------------------------------------------------------- {
 
 vnoremap <silent> inb :<C-U>normal! f(vib<CR>
 onoremap <silent> inb :<C-U>normal! f(vib<CR>
@@ -818,8 +818,8 @@ onoremap <silent> il( :<C-U>normal! F)vi(<CR>
 vnoremap <silent> al( :<C-U>normal! F)va(<CR>
 onoremap <silent> al( :<C-U>normal! F)va(<CR>
 
-" }}}
-" Next/Last {} ----------------------------------------------------------- {{{
+" }
+" Next/Last {} ----------------------------------------------------------- {
 
 vnoremap <silent> inB :<C-U>normal! f{viB<CR>
 onoremap <silent> inB :<C-U>normal! f{viB<CR>
@@ -839,8 +839,8 @@ onoremap <silent> il{ :<C-U>normal! F}vi{<CR>
 vnoremap <silent> al{ :<C-U>normal! F}va{<CR>
 onoremap <silent> al{ :<C-U>normal! F}va{<CR>
 
-" }}}
-" Next/Last [] ----------------------------------------------------------- {{{
+" }
+" Next/Last [] ----------------------------------------------------------- {
 
 vnoremap <silent> ind :<C-U>normal! f[vi[<CR>
 onoremap <silent> ind :<C-U>normal! f[vi[<CR>
@@ -860,8 +860,8 @@ onoremap <silent> il[ :<C-U>normal! F]vi[<CR>
 vnoremap <silent> al[ :<C-U>normal! F]va[<CR>
 onoremap <silent> al[ :<C-U>normal! F]va[<CR>
 
-" }}}
-" Next/Last <> ----------------------------------------------------------- {{{
+" }
+" Next/Last <> ----------------------------------------------------------- {
 
 vnoremap <silent> in< :<C-U>normal! f<vi<<CR>
 onoremap <silent> in< :<C-U>normal! f<vi<<CR>
@@ -873,8 +873,8 @@ onoremap <silent> il< :<C-U>normal! f>vi<<CR>
 vnoremap <silent> al< :<C-U>normal! f>va<<CR>
 onoremap <silent> al< :<C-U>normal! f>va<<CR>
 
-" }}}
-" Next '' ---------------------------------------------------------------- {{{
+" }
+" Next '' ---------------------------------------------------------------- {
 
 vnoremap <silent> in' :<C-U>normal! f'vi'<CR>
 onoremap <silent> in' :<C-U>normal! f'vi'<CR>
@@ -886,8 +886,8 @@ onoremap <silent> il' :<C-U>normal! F'vi'<CR>
 vnoremap <silent> al' :<C-U>normal! F'va'<CR>
 onoremap <silent> al' :<C-U>normal! F'va'<CR>
 
-" }}}
-" Next "" ---------------------------------------------------------------- {{{
+" }
+" Next "" ---------------------------------------------------------------- {
 
 vnoremap <silent> in" :<C-U>normal! f"vi"<CR>
 onoremap <silent> in" :<C-U>normal! f"vi"<CR>
@@ -899,18 +899,18 @@ onoremap <silent> il" :<C-U>normal! F"vi"<CR>
 vnoremap <silent> al" :<C-U>normal! F"va"<CR>
 onoremap <silent> al" :<C-U>normal! F"va"<CR>
 
-" }}}
+" }
 
-" }}}
-" Abbreviations ---------------------------------------------------------- {{{
+" }
+" Abbreviations ---------------------------------------------------------- {
 
 cabbr cdf cd %:p:h<CR>
 cabbr lcdf lcd %:p:h<CR>
 
-" }}}
-" Functions -------------------------------------------------------------- {{{
+" }
+" Functions -------------------------------------------------------------- {
 
-" Open URL --------------------------------------------------------------- {{{
+" Open URL --------------------------------------------------------------- {
 
 command! -bar -nargs=1 OpenURL :!open <args>
 function! OpenURLUnderCursor()
@@ -923,8 +923,8 @@ function! OpenURLUnderCursor()
 endfunction
 nmap <silent> <Leader>w :call OpenURLUnderCursor()<CR>
 
-" }}}
-" Error Toggle ----------------------------------------------------------- {{{
+" }
+" Error Toggle ----------------------------------------------------------- {
 
 command! ErrorsToggle call ErrorsToggle()
 function! ErrorsToggle()
@@ -952,8 +952,8 @@ endfunction
 nmap <silent> <F3> :ErrorsToggle<CR>
 nmap <silent> <F4> :QFixToggle<CR>
 
-" }}}
-" Strip Trailing Whitespace ---------------------------------------------- {{{
+" }
+" Strip Trailing Whitespace ---------------------------------------------- {
 
 function! StripTrailingWhitespace()
     if !&binary && &modifiable && &filetype != 'diff'
@@ -964,6 +964,6 @@ function! StripTrailingWhitespace()
     endif
 endfunction
 
-" }}}
+" }
 
-" }}}
+" }

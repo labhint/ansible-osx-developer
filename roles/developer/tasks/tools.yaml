@@ -19,12 +19,12 @@
 - name: "install sourcetree"
   homebrew_cask: name=sourcetree state=present
   environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
 - name: "install intellij idea"
   homebrew_cask: name=intellij-idea state=present
   environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
 - name: "install reattach-to-user-namespace"
   homebrew: name=reattach-to-user-namespace state=present

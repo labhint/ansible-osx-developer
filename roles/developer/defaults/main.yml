@@ -1,5 +1,7 @@
-projects_dir: "~/Projects"
-prezto_project_dir: "{{projects_dir}}/zprezto"
+home_dir: "~"
+projects_dir: "{{ home_dir }}/Projects"
+zprezto_project_dir: "{{projects_dir}}/zprezto"
+
 homebrew_cask_app_dir: "/Applications"
 
 gitconfig_user_name: "Pavel Chernykh"

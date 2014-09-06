@@ -1,43 +1,43 @@
 - name: "clone zprezto project"
-  git: repo=https://github.com/pavel-v-chernykh/prezto.git dest={{ prezto_project_dir }}
+  git: repo=https://github.com/pavel-v-chernykh/prezto.git dest={{ zprezto_project_dir }}
 
 - name: "replace gitconfig"
   template:
     src: "gitconfig"
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    dest: "{{ home_dir }}/.gitconfig"
 
 - name: "replace hgrc"
   template:
     src: "hgrc"
-    dest: "{{ ansible_env.HOME }}/.hgrc"
+    dest: "{{ home_dir }}/.hgrc"
 
 - name: "replace tmux.conf"
   template:
     src: "tmux.conf"
-    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    dest: "{{ home_dir }}/.tmux.conf"
 
 - name: "replace vimrc"
   template:
     src: "vimrc"
-    dest: "{{ ansible_env.HOME }}/.vimrc"
+    dest: "{{ home_dir }}/.vimrc"
 
 - name: "replace zpreztorc"
   template:
     src: "zpreztorc"
-    dest: "{{ ansible_env.HOME }}/.zpreztorc"
+    dest: "{{ home_dir }}/.zpreztorc"
 
 - name: "replace zshenv"
   template:
     src: "zshenv"
-    dest: "{{ ansible_env.HOME }}/.zshenv"
+    dest: "{{ home_dir }}/.zshenv"
 
 - name: "replace zshrc"
   template:
     src: "zshrc"
-    dest: "{{ ansible_env.HOME }}/.zshrc"
+    dest: "{{ home_dir }}/.zshrc"
 
 - name: "link zprezto"
-  shell: "ln -s {{ prezto_project_dir }} ~/.zprezto"
+  shell: "ln -s {{ zprezto_project_dir }} ~/.zprezto"
   args:
     creates: "~/.zprezto"
-    removes: "{{ prezto_project_dir }}"
+    removes: "{{ zprezto_project_dir }}"

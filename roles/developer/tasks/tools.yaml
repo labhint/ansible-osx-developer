@@ -1,3 +1,28 @@
+- name: "install pyenv"
+  homebrew: name=pyenv state=present
+
+- name: "install pyenv-virtualenv"
+  homebrew: name=pyenv-virtualenv state=present
+
+- name: "install rbenv"
+  homebrew: name=rbenv state=present
+
+- name: "install ruby-build"
+  homebrew: name=ruby-build state=present
+
+- name: "install nodenv"
+  homebrew: name=nodenv state=present
+
+- name: "install sourcetree"
+  homebrew_cask: name=sourcetree state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"
+
+- name: "install intellij idea"
+  homebrew_cask: name=intellij-idea state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{homebrew_cask_app_dir}}"
+
 - name: "install reattach-to-user-namespace"
   homebrew: name=reattach-to-user-namespace state=present
 

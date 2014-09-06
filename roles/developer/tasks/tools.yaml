@@ -41,8 +41,5 @@
 - name: "install vagrant"
   homebrew_cask: name=vagrant state=present
 
-- name: "tap homebrew/binary"
-  homebrew_tap: name=homebrew/binary state=present
-
 - name: "install packer"
-  homebrew_tap: name=packer state=present
+  homebrew: name=packer state=present

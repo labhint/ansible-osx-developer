@@ -57,6 +57,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install skype"
+  homebrew_cask: name=skype state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install reattach-to-user-namespace"
   homebrew: name=reattach-to-user-namespace state=present
 

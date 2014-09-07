@@ -72,6 +72,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install istat-menus"
+  homebrew_cask: name=istat-menus state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install reattach-to-user-namespace"
   homebrew: name=reattach-to-user-namespace state=present
 

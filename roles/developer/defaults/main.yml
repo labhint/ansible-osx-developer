@@ -1,5 +1,7 @@
 home_dir: "{{ ansible_env.HOME }}"
 
+zprezto_project_dir: "{{ projects_dir }}/zprezto"
+
 gitconfig_user_name: "{{ scm_user_name }}"
 gitconfig_user_email: "{{ scm_user_email }}"
 gitconfig_github_user: "{{ scm_github_username }}"

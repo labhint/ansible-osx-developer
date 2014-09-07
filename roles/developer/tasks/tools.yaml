@@ -37,6 +37,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install atom"
+  homebrew_cask: name=atom state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install evernote"
   homebrew_cask: name=evernote state=present
   environment:

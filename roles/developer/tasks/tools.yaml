@@ -92,6 +92,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install the unarchiver"
+  homebrew_cask: name=the-unarchiver state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install cord"
   homebrew_cask: name=cord state=present
   environment:

@@ -17,7 +17,7 @@
   homebrew: name=go state=present
 
 - name: "install java"
-  homebrew_cask: name=go state=present
+  homebrew_cask: name=java state=present
 
 - name: "install sourcetree"
   homebrew_cask: name=sourcetree state=present

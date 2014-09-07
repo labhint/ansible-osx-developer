@@ -1,6 +1,12 @@
 - name: "disable dashboard"
   shell: "defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock"
 
+- name: "set autohide for dock"
+  shell: "defaults write com.apple.dashboard autohide -boolean YES && killall Dock"
+
+- name: "set autohide delay for dock"
+  shell: "defaults write com.apple.Dock autohide-delay -float 0 && killall Dock"
+
 - name: "set default theme for terminal"
   shell: "defaults write com.apple.Terminal 'Default Window Settings' 'Pro'"
 

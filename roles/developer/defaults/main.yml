@@ -6,9 +6,9 @@ homebrew_cask_app_dir: "/Applications"
 
 aws_default_profile: "my"
 
-gitconfig_user_name: "Pavel Chernykh"
-gitconfig_user_email: "pavel.v.chernykh@gmail.com"
-gitconfig_github_user: "pavel-v-chernykh"
+gitconfig_user_name: "{{ scm_user_name }}"
+gitconfig_user_email: "{{ scm_user_email }}"
+gitconfig_github_user: "{{ scm_github_username }}"
 
-hgrc_ui_user_name: "Pavel Chernykh"
-hgrc_ui_user_email: "pavel.v.chernykh@gmail.com"
+hgrc_ui_user_name: "{{ scm_user_name }}"
+hgrc_ui_user_email: "{{ scm_user_email }}"

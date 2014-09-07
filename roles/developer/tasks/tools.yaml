@@ -1,13 +1,13 @@
 - name: "install pyenv"
   homebrew: name=pyenv state=present
 
-- name: "install pyenv-virtualenv"
+- name: "install pyenv virtualenv"
   homebrew: name=pyenv-virtualenv state=present
 
 - name: "install rbenv"
   homebrew: name=rbenv state=present
 
-- name: "install ruby-build"
+- name: "install ruby build"
   homebrew: name=ruby-build state=present
 
 - name: "install nodenv"
@@ -77,7 +77,7 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
-- name: "install istat-menus"
+- name: "install istat menus"
   homebrew_cask: name=istat-menus state=present
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
@@ -117,12 +117,12 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
-- name: "install punto-switcher"
+- name: "install punto switcher"
   homebrew_cask: name=punto-switcher state=present
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
-- name: "install reattach-to-user-namespace"
+- name: "install reattach to user namespace"
   homebrew: name=reattach-to-user-namespace state=present
 
 - name: "install tmux"
@@ -134,7 +134,7 @@
 - name: "install fasd"
   homebrew: name=fasd state=present
 
-- name: "install terminal-notifier"
+- name: "install terminal notifier"
   homebrew: name=terminal-notifier state=present
 
 - name: "install total terminal"

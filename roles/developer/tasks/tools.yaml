@@ -77,6 +77,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install onepassword"
+  homebrew_cask: name=onepassword state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install reattach-to-user-namespace"
   homebrew: name=reattach-to-user-namespace state=present
 

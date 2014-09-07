@@ -1,4 +1,4 @@
 ansible-osx-developer
 =====================
 
-Provisioning OS X for web development using Ansible
+Provisioning OS X for development using Ansible

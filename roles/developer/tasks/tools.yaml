@@ -193,4 +193,4 @@
   homebrew: name=docker state=present
 
 - name: "install dvm"
-  homebrew_cask: name=dvm state=present
+  homebrew: name=dvm state=present

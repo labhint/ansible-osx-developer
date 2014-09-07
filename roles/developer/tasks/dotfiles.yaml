@@ -1,5 +1,5 @@
 - name: "clone zprezto project"
-  git: repo=https://github.com/pavel-v-chernykh/prezto.git dest={{ zprezto_project_dir }}
+  git: repo=https://github.com/pavel-v-chernykh/prezto.git dest={{ projects_dir }}/zprezto
 
 - name: "link zprezto"
   shell: "ln -Fs {{ zprezto_project_dir }} {{ home_dir }}/.zprezto"

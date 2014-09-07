@@ -1,10 +1,4 @@
 home_dir: "{{ ansible_env.HOME }}"
-projects_dir: "{{ home_dir }}/Projects"
-zprezto_project_dir: "{{ projects_dir }}/zprezto"
-
-homebrew_cask_app_dir: "/Applications"
-
-aws_default_profile: "my"
 
 gitconfig_user_name: "{{ scm_user_name }}"
 gitconfig_user_email: "{{ scm_user_email }}"

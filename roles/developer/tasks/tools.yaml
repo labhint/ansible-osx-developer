@@ -188,3 +188,9 @@
 
 - name: "install packer"
   homebrew: name=packer state=present
+
+- name: "install docker"
+  homebrew: name=docker state=present
+
+- name: "install dvm"
+  homebrew_cask: name=dvm state=present

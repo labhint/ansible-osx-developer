@@ -1,8 +1,6 @@
 #!/bin/sh
 
-PROJECTS_DIR="${HOME}/Projects"
-PROJECT_NAME="ansible-osx-developer"
-PROJECT_DIR="${PROJECTS_DIR}/${PROJECT_NAME}"
+PROJECT_DIR=`mktemp -d "/tmp/ansible-osx-developer.XXXXXX"`
 
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)";
 

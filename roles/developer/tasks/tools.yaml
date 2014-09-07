@@ -42,6 +42,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install alfred"
+  homebrew_cask: name=alfred state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install dash"
   homebrew_cask: name=dash state=present
   environment:

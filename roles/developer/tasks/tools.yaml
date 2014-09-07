@@ -19,6 +19,14 @@
 - name: "install java"
   homebrew_cask: name=java state=present
 
+- name: "install ksdiff"
+  homebrew_cask: name=ksdiff state=present
+
+- name: "install kaleidoscope"
+  homebrew_cask: name=kaleidoscope state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install sourcetree"
   homebrew_cask: name=sourcetree state=present
   environment:

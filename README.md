@@ -6,7 +6,8 @@ Provisioning OS X for development using Ansible.
 Installation
 ------------
 
-To override defaults specified in roles/developer/defaults/main.yaml you should pass it to bootstrap.sh script
+To override defaults specified in roles/developer/defaults/main.yaml you should pass it to bootstrap.sh script.
+
 There are two options how to do it:
 
 1. Inline string "scm_user_name='My Name' scm_user_email='my_email@example.com'"

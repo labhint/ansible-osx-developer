@@ -47,6 +47,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install skitch"
+  homebrew_cask: name=skitch state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install dropbox"
   homebrew_cask: name=dropbox state=present
   environment:

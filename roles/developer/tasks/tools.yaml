@@ -87,6 +87,11 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install punto switcher"
+  homebrew_cask: name=punto-switcher state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install whatsize"
   homebrew_cask: name=whatsize state=present
   environment:
@@ -94,6 +99,11 @@
 
 - name: "install the unarchiver"
   homebrew_cask: name=the-unarchiver state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
+- name: "install sketch"
+  homebrew_cask: name=sketch state=present
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
@@ -114,11 +124,6 @@
 
 - name: "install teamviewer"
   homebrew_cask: name=teamviewer state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install punto switcher"
-  homebrew_cask: name=punto-switcher state=present
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 

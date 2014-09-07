@@ -1,5 +1,8 @@
 - name: "set fast key repeat"
-  shell: "defaults write -globalDomain KeyRepeat -int 0"
+  shell: "defaults write -globalDomain KeyRepeat -int 2"
+
+- name: "set fast initial key repeat"
+  shell: "defaults write -globalDomain InitialKeyRepeat -int 10"
 
 - name: "disable dashboard"
   shell: "defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock"

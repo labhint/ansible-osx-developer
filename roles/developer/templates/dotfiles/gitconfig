@@ -56,8 +56,10 @@
 	tool = Kaleidoscope
 [web]
 	browser = google-chrome
+{% if gitconfig_github_user %}
 [github]
 	user = {{ gitconfig_github_user }}
+{% endif %}
 [core]
 	editor = vim
 [push]

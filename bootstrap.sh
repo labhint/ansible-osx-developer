@@ -11,4 +11,4 @@ brew install ansible;
 
 git clone https://github.com/pavel-v-chernykh/ansible-osx-developer.git "${PROJECT_DIR}";
 
-cd "${PROJECT_DIR}" && ansible-playbook ./developer.yaml --extra-vars="$1";
+cd "${PROJECT_DIR}" && ansible-playbook ./developer.yaml

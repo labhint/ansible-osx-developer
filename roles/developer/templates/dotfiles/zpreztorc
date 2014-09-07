@@ -41,7 +41,9 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'vagrant' \
   'node' \
+{% if aws_default_profile %}
   'aws' \
+{% endif %}
   'osx' \
   'syntax-highlighting' \
   'history-substring-search' \
@@ -71,12 +73,14 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 # Set the command prefix on non-GNU systems.
 # zstyle ':prezto:module:gnu-utility' prefix 'g'
 
+{% if aws_default_profile %}
 #
 # AWS
 #
 
 zstyle ':prezto:module:aws' aws-default-profile '{{ aws_default_profile }}'
 
+{% endif %}
 #
 # Go lang
 #

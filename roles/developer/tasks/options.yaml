@@ -21,3 +21,6 @@
 
 - name: "set default login shell for terminal"
   shell: "defaults write com.apple.Terminal Shell '/usr/local/bin/zsh'"
+
+- name: "set limit maxfiles"
+  shell: "echo 'limit maxfiles 16384 16384' | sudo tee -a /etc/launchd.conf > /dev/null"

@@ -194,3 +194,6 @@
 
 - name: "install dvm"
   homebrew: name=dvm state=present
+
+- name: "install postgresql"
+  homebrew: name=postgresql state=present

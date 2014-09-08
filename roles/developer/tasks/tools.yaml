@@ -13,8 +13,8 @@
 - name: "install nodenv"
   homebrew: name=nodenv state=present
 
-- name: "install nodejs"
-  homebrew: name=nodejs state=present
+- name: "install node"
+  homebrew: name=node state=present
 
 - name: "install go"
   homebrew: name=go state=present

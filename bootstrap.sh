@@ -9,6 +9,6 @@ brew update && brew upgrade;
 
 brew install ansible;
 
-git clone https://github.com/pavel-v-chernykh/ansible-osx-developer.git "${PROJECT_DIR}";
+git clone --recursive https://github.com/pavel-v-chernykh/ansible-osx-developer.git "${PROJECT_DIR}";
 
 cd "${PROJECT_DIR}" && ansible-playbook ./developer.yaml

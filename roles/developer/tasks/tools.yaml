@@ -173,12 +173,6 @@
 - name: "install reattach to user namespace"
   homebrew: name=reattach-to-user-namespace state=present
 
-- name: "install tmux"
-  homebrew: name=tmux state=present
-
-- name: "install zsh"
-  homebrew: name=zsh state=present
-
 - name: "install fasd"
   homebrew: name=fasd state=present
 

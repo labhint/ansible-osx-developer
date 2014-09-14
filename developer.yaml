@@ -3,7 +3,7 @@
   vars_prompt:
     - name: "projects_dir"
       prompt: "Where the projects should be cloned?"
-      default: "{{ home_dir }}/Projects"
+      default: "{{ ansible_env.HOME }}/Projects"
       private: no
     - name: "homebrew_cask_app_dir"
       prompt: "Where hombrew cask should link apps?"

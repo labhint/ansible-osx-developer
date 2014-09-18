@@ -100,6 +100,16 @@
   environment:
     HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
+- name: "install cheatsheet"
+  homebrew_cask: name=cheatsheet state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
+- name: "install iterm2"
+  homebrew_cask: name=iterm2 state=present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
+
 - name: "install whatsize"
   homebrew_cask: name=whatsize state=present
   environment:

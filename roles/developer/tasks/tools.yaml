@@ -1,3 +1,4 @@
+---
 - name: "install pyenv"
   homebrew: name=pyenv state=present
 
@@ -19,166 +20,11 @@
 - name: "install go"
   homebrew: name=go state=present
 
+- name: "install htop"
+  homebrew: name=htop state=present
+
 - name: "install java"
   homebrew_cask: name=java state=present
-
-- name: "install ksdiff"
-  homebrew_cask: name=ksdiff state=present
-
-- name: "install kaleidoscope"
-  homebrew_cask: name=kaleidoscope state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install sourcetree"
-  homebrew_cask: name=sourcetree state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install intellij idea"
-  homebrew_cask: name=intellij-idea state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install atom"
-  homebrew_cask: name=atom state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install djview"
-  homebrew_cask: name=djview state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install alfred"
-  homebrew_cask: name=alfred state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install dash"
-  homebrew_cask: name=dash state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install evernote"
-  homebrew_cask: name=evernote state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install skitch"
-  homebrew_cask: name=skitch state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install dropbox"
-  homebrew_cask: name=dropbox state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install skype"
-  homebrew_cask: name=skype state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install spectacle"
-  homebrew_cask: name=spectacle state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install istat menus"
-  homebrew_cask: name=istat-menus state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install onepassword"
-  homebrew_cask: name=onepassword state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install punto switcher"
-  homebrew_cask: name=punto-switcher state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install cheatsheet"
-  homebrew_cask: name=cheatsheet state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install iterm2"
-  homebrew_cask: name=iterm2 state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install whatsize"
-  homebrew_cask: name=whatsize state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install the unarchiver"
-  homebrew_cask: name=the-unarchiver state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install sketch"
-  homebrew_cask: name=sketch state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install sketch tool"
-  homebrew_cask: name=sketch-tool state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install sketch toolbox"
-  homebrew_cask: name=sketch-toolbox state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install macpaw gemini"
-  homebrew_cask: name=macpaw-gemini state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install cleanmymac"
-  homebrew_cask: name=cleanmymac state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install vlc"
-  homebrew_cask: name=vlc state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install transmission"
-  homebrew_cask: name=transmission state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install cord"
-  homebrew_cask: name=cord state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install tunnelbear"
-  homebrew_cask: name=tunnelbear state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install tunnelblick"
-  homebrew_cask: name=tunnelblick state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install teamviewer"
-  homebrew_cask: name=teamviewer state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
-
-- name: "install xquartz"
-  homebrew_cask: name=xquartz state=present
-  environment:
-    HOMEBREW_CASK_OPTS: "--appdir={{ homebrew_cask_app_dir }}"
 
 - name: "install reattach to user namespace"
   homebrew: name=reattach-to-user-namespace state=present
@@ -189,23 +35,11 @@
 - name: "install terminal notifier"
   homebrew: name=terminal-notifier state=present
 
-- name: "install total terminal"
-  homebrew_cask: name=totalterminal state=present
-
-- name: "install virtualbox"
-  homebrew_cask: name=virtualbox state=present
-
 - name: "install vagrant"
   homebrew_cask: name=vagrant state=present
-
-- name: "install packer"
-  homebrew: name=packer state=present
 
 - name: "install docker"
   homebrew: name=docker state=present
 
 - name: "install dvm"
   homebrew: name=dvm state=present
-
-- name: "install postgresql"
-  homebrew: name=postgresql state=present

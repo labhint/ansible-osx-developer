@@ -1,25 +1,21 @@
 - hosts: developer
   roles: [developer]
   vars_prompt:
-    - name: "projects_dir"
+    - name: "dotfiles_projects_dir"
       prompt: "Where the projects should be cloned?"
       default: "{{ ansible_env.HOME }}/Projects"
       private: no
-    - name: "homebrew_cask_app_dir"
-      prompt: "Where hombrew cask should link apps?"
-      default: "/Applications"
-      private: no
-    - name: "scm_user_name"
+    - name: "dotfiles_scm_user_name"
       prompt: "Specify user name that should be used in SCM (git, hg) configs?"
       private: no
-    - name: "scm_user_email"
+    - name: "dotfiles_scm_user_email"
       prompt: "Specify email that should be used in SCM (git, hg) configs?"
       private: no
-    - name: "scm_github_username"
+    - name: "dotfiles_scm_github_username"
       prompt: "Specify GitHub username (optional)?"
       default: ""
       private: no
-    - name: "aws_default_profile"
+    - name: "dotfiles_aws_default_profile"
       prompt: "Specify Amazon Web Services default profile (optional)?"
       default: ""
       private: no

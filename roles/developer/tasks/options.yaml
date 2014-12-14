@@ -1,3 +1,4 @@
+---
 - name: "set fast key repeat"
   shell: "defaults write -globalDomain KeyRepeat -int 2"
 
@@ -23,4 +24,5 @@
   shell: "defaults write com.apple.Terminal Shell '/usr/local/bin/zsh'"
 
 - name: "set limit maxfiles"
-  shell: "echo 'limit maxfiles 16384 16384' | sudo tee -a /etc/launchd.conf > /dev/null"
+  lineinfile: dest=/etc/launchd.conf line='limit maxfiles 16384 16384'
+  sudo: yes

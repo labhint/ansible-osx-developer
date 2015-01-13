@@ -1,5 +1,7 @@
 #!/bin/sh
 
+xcode-select --install
+
 PROJECT_DIR=`mktemp -d "/tmp/ansible-osx-developer.XXXXXXXXXX"`
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
